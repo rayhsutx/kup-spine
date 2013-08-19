@@ -10,6 +10,7 @@ namespace java com.kaisquare.core.internal.thrift
 namespace cpp com.kaisquare.core.internal.thrift
 
 enum ServiceType {
+	Arbiter,
 	DeviceServer,
 	StreamController
 }
@@ -46,11 +47,13 @@ service ArbiterService {
 	/**
 	 *	Unregister service from Arbiter
 	 *
-	 *	(1) key - The key which registered on Arbiter
+	 *	(1)	type - The service type
+	 *	(2) key - The key which registered on Arbiter
 	 *
 	 *	RETURN true on success, false otherwise
 	 */
-	bool unregisterService(1: string key),
+	bool unregisterService(1: ServiceType type,
+						2: string key),
 
 	/**
 	 *	Received event from service, service notifies event or status to Aribter via this interface
