@@ -10,7 +10,7 @@ namespace java com.kaisquare.core.internal.thrift
 namespace cpp com.kaisquare.core.internal.thrift
 
 /**
- * StreamControllerService - this service provides interface for
+ * StreamControlService - this service provides interface for
  * management (control) of a streaming sessions. Aribiter uses
  * this interface to tell stream controller how to handle specified stream
  * NOTE 1: This is only for control, not for actual video data transfer.
@@ -18,7 +18,7 @@ namespace cpp com.kaisquare.core.internal.thrift
  		   which means Stream Controller have to keep all the current session state of streaming server,
  		   if the stream has existed in streaming server, Stream Controller can ignore adding same stream to streaming server.
  */
-service StreamControllerService {
+service StreamControlService {
 
     /**
      * Begin a new media session. This is a request from Platform to Core
