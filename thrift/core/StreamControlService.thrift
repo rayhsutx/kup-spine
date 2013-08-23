@@ -63,17 +63,19 @@ service StreamControlService {
 	 * Request a playback stream with start time and end time
 	 *
 	 * (1) streamName - the stream name which specified for recording
-	 * (2) startTimestamp - The start time of playback (UTC), it's unix time, defined as the number of seconds that have elapsed since 00:00:00 
+	 * (2) type - the type of stream, (h264, mjpeg only)
+	 * (3) startTimestamp - The start time of playback (UTC), it's unix time, defined as the number of seconds that have elapsed since 00:00:00 
 	 * 						Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting leap seconds.
-	 * (3) endTimestamp - The end time of playback (UTC), it's unix time, defined as the number of seconds that have elapsed since 00:00:00 
+	 * (4) endTimestamp - The end time of playback (UTC), it's unix time, defined as the number of seconds that have elapsed since 00:00:00 
 	 * 						Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting leap seconds.
 	 *
 	 * RETURN list of playback URL, it can be a playlist that contains all required streams, to be played in that order. if it returns NULL
 	 * or an empty of list that represent there's no available video for playback.
 	 */
 	list<string> addPlaybackStream(1: string streamName,
-					2: i64 startTimestamp,
-					3: i64 endTimestamp),
+					2: string type,
+					3: i64 startTimestamp,
+					4: i64 endTimestamp),
 
     /**
      * Terminate stream with specified stream name
